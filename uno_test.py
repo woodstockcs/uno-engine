@@ -143,7 +143,6 @@ def test_deck():
     print("is_empty should be True: ", end='')
     print(d.is_empty())
 
-
 def main():
     print("\n")
     print("*******************************")

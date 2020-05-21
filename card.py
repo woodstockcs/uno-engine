@@ -52,7 +52,6 @@ class Card:
         return output
 
     def forfeit_cost(self):
-      
       if self.rank == Rank.SKIP:
         return 20
       elif self.rank == Rank.REVERSE:
@@ -61,9 +60,8 @@ class Card:
         return 20
       if self.rank == Rank.WILD or Rank.WILD_DRAW_FOUR:
         return 50
-      
+
       return self.number + int(self.color)
-        
 
     def can_play_on(self, c, calledColor):
         if self.rank == Rank.WILD:
@@ -75,4 +73,3 @@ class Card:
         if self.rank == Rank.SKIP:
             game.advance_to_next_player()
         game.advance_to_next_player()
-        
