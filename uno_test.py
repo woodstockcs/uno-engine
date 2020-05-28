@@ -2,6 +2,13 @@ from card import Card
 from constants import *
 from deck import Deck
 
+def test(expected, actual):
+    print(f"expected = {expected}")
+    print(f"actual   = {actual}")
+    if expected == actual:
+        print("\033[32mTEST PASSED :-) \033[37m\033[0m")
+    else:
+        print("\033[31mTEST FAILED :-( \033[37m\033[0m")
 
 def test_card_print():
 
@@ -109,27 +116,79 @@ def test_deck():
     print("deck")
     print("-----------------------")
 
+    print()
+    print("NUMBER_OF_REG_CARDS_PER_COLOR")
+    expected = 2
+    actual = Deck.NUMBER_OF_REG_CARDS_PER_COLOR
+    test(expected, actual)
+
+    print()
+    print("NUMBER_OF_ZERO_CARDS_PER_COLOR")
+    expected = 1
+    actual = Deck.NUMBER_OF_ZERO_CARDS_PER_COLOR
+    test(expected, actual)
+
+    print()
+    print("NUMBER_OF_SKIP_CARDS_PER_COLOR")
+    expected = 2
+    actual = Deck.NUMBER_OF_SKIP_CARDS_PER_COLOR
+    test(expected, actual)
+
+    print()
+    print("NUMBER_OF_REVERSE_CARDS_PER_COLOR")
+    expected = 2
+    actual = Deck.NUMBER_OF_REVERSE_CARDS_PER_COLOR
+    test(expected, actual)
+
+    print()
+    print("NUMBER_OF_DRAW_TWO_CARDS_PER_COLOR")
+    expected = 2
+    actual = Deck.NUMBER_OF_DRAW_TWO_CARDS_PER_COLOR
+    test(expected, actual)
+
+    print()
+    print("NUMBER_OF_WILD_CARDS")
+    expected = 4
+    actual = Deck.NUMBER_OF_WILD_CARDS
+    test(expected, actual)
+
+    print()
+    print("NUMBER_OF_WILD_D4_CARDS")
+    expected = 4
+    actual = Deck.NUMBER_OF_WILD_D4_CARDS
+    test(expected, actual)
+
+    print()
     print("deck size should be 108: ", end='')
     d = Deck()
     print(len(d.cards))
-    
+
     print()
     print("all the cards:")
-    print(', '.join([str(c) for c in d.cards]))
+    if len(d.cards) > 0:
+        print(', '.join([str(c) for c in d.cards]))
+    else:
+        print("no cards in deck")
 
     print()
     print("first ten cards before a shuffle:")
     d = Deck()
-    for i in range(9):
-      print(d.cards[i], end=", ")
-    print(d.cards[9])
+    if len(d.cards) > 0:
+        for i in range(9):
+          print(d.cards[i], end=", ")
+        print(d.cards[9])
+    else:
+        print("no cards in deck")
 
     print()
     print("first ten cards after a shuffle:")
-    d.shuffle()
-    for i in range(9):
-      print(d.cards[i], end=", ")
-    print(d.cards[9])   
+    if len(d.cards) > 0:
+        d.shuffle()
+        for i in range(9):
+          print(d.cards[i], end=", ")
+        print(d.cards[9])
+    else:
+        print("no cards in deck")
 
     print()
     print("is_empty should be False: ", end='')
