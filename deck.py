@@ -3,7 +3,7 @@ from card import Card
 from constants import *
 
 class Deck:
-    NUMBER_OF_REG_CARDS_PER_COLOR = 0
+    NUMBER_OF_REG_CARDS_PER_COLOR = 2
     NUMBER_OF_ZERO_CARDS_PER_COLOR = 0
     NUMBER_OF_SKIP_CARDS_PER_COLOR = 0
     NUMBER_OF_REVERSE_CARDS_PER_COLOR = 0
