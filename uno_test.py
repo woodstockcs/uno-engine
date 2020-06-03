@@ -108,6 +108,80 @@ def test_card_forfeit_cost():
     c = Card(Color.RED, Rank.NUMBER, 0)
     print(c.forfeit_cost())
 
+def test_card_can_play_on():
+
+    print()
+    print("-----------------------")
+    print("card.can_play_on")
+    print("-----------------------")
+
+
+    print()
+    print("Can a WILD play on RED 3?")
+    expected = True
+    actual = Card(Color.NONE, Rank.WILD, 0).can_play_on(Card(Color.RED, Rank.NUMBER, 3), Color.NONE)
+    test(expected, actual)
+
+    print()
+    print("Can a WILD play on WILD when BLUE is called?")
+    expected = True
+    actual = Card(Color.NONE, Rank.WILD, 0).can_play_on(Card(Color.NONE, Rank.WILD, 0), Color.BLUE)
+    test(expected, actual)
+
+    print()
+    print("Can a WILD_D4 play on RED REVERSE?")
+    expected = True
+    actual = Card(Color.NONE, Rank.WILD_D4, 0).can_play_on(Card(Color.RED, Rank.REVERSE, 0), Color.NONE)
+    test(expected, actual)
+
+    print()
+    print("Can a BLUE 3 play on BLUE 5?")
+    expected = True
+    actual = Card(Color.BLUE, Rank.NUMBER, 3).can_play_on(Card(Color.BLUE, Rank.NUMBER, 5), Color.NONE)
+    test(expected, actual)
+
+    print()
+    print("Can a BLUE 3 play on RED 5?")
+    expected = False
+    actual = Card(Color.BLUE, Rank.NUMBER, 3).can_play_on(Card(Color.RED, Rank.NUMBER, 5), Color.NONE)
+    test(expected, actual)
+
+    print()
+    print("Can a BLUE 3 play on WILD when BLUE is called?")
+    expected = True
+    actual = Card(Color.BLUE, Rank.NUMBER, 3).can_play_on(Card(Color.NONE, Rank.WILD, 0), Color.BLUE)
+    test(expected, actual)
+
+    print()
+    print("Can a BLUE 3 play on WILD when YELLOW is called?")
+    expected = False
+    actual = Card(Color.BLUE, Rank.NUMBER, 3).can_play_on(Card(Color.NONE, Rank.WILD, 0), Color.YELLOW)
+    test(expected, actual)
+
+    print()
+    print("Can a BLUE REVERSE play on RED REVERSE?")
+    expected = True
+    actual = Card(Color.BLUE, Rank.REVERSE, 0).can_play_on(Card(Color.RED, Rank.REVERSE, 0), Color.NONE)
+    test(expected, actual)
+
+    print()
+    print("Can a BLUE REVERSE play on GREEN SKIP?")
+    expected = False
+    actual = Card(Color.BLUE, Rank.REVERSE, 0).can_play_on(Card(Color.GREEN, Rank.SKIP, 0), Color.NONE)
+    test(expected, actual)
+
+    print()
+    print("Can a GREEN 4 play on RED 4?")
+    expected = True
+    actual = Card(Color.GREEN, Rank.NUMBER, 4).can_play_on(Card(Color.RED, Rank.NUMBER, 4), Color.NONE)
+    test(expected, actual)
+
+    print()
+    print("Can a GREEN 4 play on RED 5?")
+    expected = False
+    actual = Card(Color.GREEN, Rank.NUMBER, 4).can_play_on(Card(Color.RED, Rank.NUMBER, 5), Color.NONE)
+    test(expected, actual)
+
 
 def test_deck():
 
@@ -212,6 +286,7 @@ def main():
     test_card_print()
     # test_card_forfeit_cost()
     test_deck()
+    test_card_can_play_on()
 
 if __name__ == '__main__':
     main()

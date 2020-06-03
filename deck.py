@@ -31,15 +31,12 @@ class Deck:
 
 
     def shuffle(self):
-      # TODO: write this function:
-      # for some number of times
-      # (how many? you pick a good number.
-      # then multiply that number by SHUFFLE_FACTOR (defined above)
-      # so people can "double" or "triple" the number of times you picked)
+      for i in range(len(self.cards) * self.SHUFFLE_FACTOR):
+        pass
+      # TODO:
         # pick two items randomly from the list called self.cards
         # and swap their positions in the list
       # don't return anything.
-      pass
 
     def is_empty(self):
       if len(self.cards)==0:

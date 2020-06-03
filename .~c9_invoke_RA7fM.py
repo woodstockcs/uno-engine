@@ -70,8 +70,7 @@ class Card:
       # TODO more elif's go here
       # study the code that's already here and compare it
       # to the java code pictured in your task
-      # and see if you can figure out the patterns,
-      # example, where java says "rank", you write "self.rank"
+      # and see if you can figure out the pattern
       #
       elif self.rank == c.rank and self.rank != Rank.NUMBER:
         return True
@@ -79,7 +78,7 @@ class Card:
       # TODO last elif goes here
       #
       else:
-        pass  # TODO: change this to return False
+        return None
 
     def perform_card_effect(self, game):
         if self.rank == Rank.SKIP:
