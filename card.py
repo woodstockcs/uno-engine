@@ -66,20 +66,18 @@ class Card:
     def can_play_on(self, c, calledColor):
       if self.rank == Rank.WILD:
         return True
-      #
-      # TODO more elif's go here
-      # study the code that's already here and compare it
-      # to the java code pictured in your task
-      # and see if you can figure out the patterns,
-      # example, where java says "rank", you write "self.rank"
-      #
+      elif self.rank == Rank.WILD_D4:
+        return True
+      elif self.color == c.color:
+        return True
+      elif self.color == calledColor:
+        return True
       elif self.rank == c.rank and self.rank != Rank.NUMBER:
         return True
-      #
-      # TODO last elif goes here
-      #
+      elif self.number == c.number and self.rank == Rank.NUMBER and c.rank == Rank.NUMBER:
+        return True
       else:
-        pass  # TODO: change this to return False
+        return False
 
     def perform_card_effect(self, game):
         if self.rank == Rank.SKIP:
